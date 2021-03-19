@@ -23,6 +23,7 @@ def initialize_priors(map_size, landmarks, stdev):
     # Set the probability to each position.
     for p in positions:
         priors[p] += prob
+        #print("p = %d" % p)
     return priors
 
 # Estimate pseudo range determined according to the
@@ -39,20 +40,37 @@ def estimate_pseudo_range(landmarks, p):
 
 # Motion model (assuming 1-D Gaussian dist)
 def motion_model(position, mov, priors, map_size, stdev):
-    # Initialize the position's probability to zero.
+    # Initialize the position's probability  to zero.
     position_prob = 0.0
+
+    for i in range(map_size):
+        # calculate the probability in every position
+        position_prob += norm_pdf(position-i, mov, stdev) * priors[i]
+
 
     # TODO: Loop over state space for all possible prior positions,
     # calculate the probability (using norm_pdf) of the vehicle
     # moving to the current position from that prior.
     # Multiply this probability to the prior probability of
     # the vehicle "was" at that prior position.
+
     return position_prob
 
 # Observation model (assuming independent Gaussian)
 def observation_model(landmarks, observations, pseudo_ranges, stdev):
     # Initialize the measurement's probability to one.
     distance_prob = 1.0
+    if len(observations) == 0:
+        distance_prob = 0.0
+    elif len(observations) > len(pseudo_ranges):
+        distance_prob = 0.0
+    elif len(observations) < len(pseudo_ranges):
+        distance_prob = 0.0
+    else:
+        for i in range(len(observations)):
+            distance_prob *= norm_pdf(observations[i], pseudo_ranges[i], stdev)
+
+        #print("final_distance_prob = %f" % distance_prob)
 
     # TODO: Calculate the observation model probability as follows:
     # (1) If we have no observations, we do not have any probability.
@@ -64,6 +82,7 @@ def observation_model(landmarks, observations, pseudo_ranges, stdev):
     #     d: observation distance
     #     mu: expected mean distance, given by pseudo_ranges
     #     sig: squared standard deviation of measurement
+
     return distance_prob
 
 # Normalize a probability distribution so that the sum equals 1.0.
