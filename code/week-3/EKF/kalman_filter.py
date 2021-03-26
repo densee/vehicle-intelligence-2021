@@ -1,4 +1,5 @@
 import numpy as np
+import math
 from math import sqrt
 from math import atan2
 from tools import Jacobian
@@ -33,3 +34,34 @@ class KalmanFilter:
         # 6. Calculate new estimates
         #    x = x' + K * y
         #    P = (I - K * H_j) * P
+
+        px, py, vx, vy = self.x
+
+        H_j = Jacobian(self.x)
+        S = np.dot(np.dot(H_j, self.P), H_j.T) + self.R
+        K = np.dot(np.dot(self.P, H_j.T), np.linalg.inv(S))
+
+        c1 = px * px + py * py
+        c2 = sqrt(c1)
+        c3 = atan2(py, px)
+        c4 = (px*vx+py*vy)/c2
+
+        y = z - [c2, c3, c4]
+
+        if y[1] > math.pi:
+            y[1] = y[1] - 2*math.pi
+        elif y[1] < -math.pi:
+            y[1] = y[1] + 2*math.pi
+
+        self.x = self.x + np.dot(K, y)
+
+        self.P = self.P - np.dot((np.dot(K, H_j)), self.P)
+
+        print("x = ")
+        print(self.x)
+        print("P = ")
+        print(self.P)
+        print("R = ")
+        print(self.R)
+        print("S = ")
+        print(S)

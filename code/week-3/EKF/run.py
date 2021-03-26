@@ -44,6 +44,7 @@ def testEKF(inputfilename):
             'vx': fusion_EKF.ekf.x[2],
             'vy': fusion_EKF.ekf.x[3],
         })
+
     # Visualize the result
     plot_2d(estimations, gt_values)
 

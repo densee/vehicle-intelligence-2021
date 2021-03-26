@@ -109,7 +109,3 @@ class EKF:
             self.ekf.update(z)
 
         # Print the output
-        # print("x = ")
-        # print(self.ekf.x)
-        # print("P = ")
-        # print(self.ekf.P)
