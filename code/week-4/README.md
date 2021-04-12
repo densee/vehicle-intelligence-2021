@@ -12,8 +12,8 @@
 2. When I calculated multivariate normal pdf, I put observation data as input state, distance between landmark and particle as mean. 
 3. After that, we calculated the weight of the particles and updated them through resampling.
 The contents below are the contents of the code file I wrote.
-    
-
+   
+The contents of the "particle_filter.py" are as follows:
 
     def update_weights(self, sensor_range, std_landmark_x, std_landmark_y,observations, map_landmarks):    
         for p in self.particles:
