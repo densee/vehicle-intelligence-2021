@@ -79,15 +79,13 @@ The contents below are the contents of the code file I wrote.
                 p['w'] *= self.multivariate_normal_pdf(arr_obs, arr_assoc, cov, k)
                 p['assoc'].append(association_landmarks[i]['id'])
 
-    # Resample particles with replacement with probability proportional to
-    #   their weights. 
-
 
     def multivariate_normal_pdf(self, x, mean, cov, k):
         x_m = x - mean
         cov_det = abs(np.linalg.det(cov))
         one_over_sqrt_2pi = 1 / (np.sqrt(((2 * np.pi) ** k) * cov_det))
         return one_over_sqrt_2pi * np.exp(-0.5 * np.dot(np.dot(np.transpose(x_m), np.linalg.inv(cov)), x_m))
+
 
     def resample(self):
         copied_particle = []
