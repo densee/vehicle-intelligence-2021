@@ -2,7 +2,8 @@
 
 # Hybrid Astar
 
-Hybrid Astar는 기존 Astar와 다르게 Complete와 optimal하지 않은 알고리즘이다.
+Hybrid Astar는 기존 Astar와 다르게 complete와 optimal하지 않은 알고리즘이다.
+
 이동하는 물체는 장애물이 있는 grid 상에서 회전할 수 있는 조향 각도에 대한 제한을 가지며 이동한다.
 
 ### * expand 
@@ -130,5 +131,34 @@ Hybrid Astar는 기존 Astar와 다르게 Complete와 optimal하지 않은 알�
 
 ## Result
 자동차의 speed와 NUM_THETA_CELLS을 변경하여 나타난 결과는 아래와 같다.
+
+* speed : 0.5 & NUM_THETA_CELLS : 90
+
+![0 5speed_90cell](https://user-images.githubusercontent.com/48784519/117338903-13030280-aeda-11eb-96f7-44ddbf550ba9.JPG)
+
+* speed : 1.0 & NUM_THETA_CELLS : 90
+
+![1 0speed_90cell](https://user-images.githubusercontent.com/48784519/117339119-565d7100-aeda-11eb-83b4-c972f51b2c58.JPG)
+
+
+
+* speed : 0.5 & NUM_THETA_CELLS : 180
+
+![0 5speed_180cell](https://user-images.githubusercontent.com/48784519/117338933-1ac2a700-aeda-11eb-9157-8c75f8a5c704.JPG)
+
+* speed : 1.0 & NUM_THETA_CELLS : 180
+
+![1 0speed_180cell](https://user-images.githubusercontent.com/48784519/117339126-58bfcb00-aeda-11eb-9120-28953d863465.JPG)
+
+
+
+* speed : 0.5 & NUM_THETA_CELLS : 360
+
+![0 5speed_360cell](https://user-images.githubusercontent.com/48784519/117338984-2c0bb380-aeda-11eb-8884-5cf2257250d1.JPG)
+
+* speed : 1.0 & NUM_THETA_CELLS : 360
+
+![1 0speed_360cell](https://user-images.githubusercontent.com/48784519/117339137-5e1d1580-aeda-11eb-869f-c9997b1145fb.JPG)
+
 
 
