@@ -8,8 +8,7 @@
 
 GNB 과제는 수집된 데이터를 이용하여 
 각 주행(왼쪽차선 이동, 직진 이동, 오른쪽차선 이동)의 평균들과 표준편차들을 계산하고
-Observation으로 취득된 데이터들과 평균들 및 표준편차들을 이용해  
-가능성이 높은 주행 경로를 예측하는 것이다.
+Observation으로 취득된 데이터들과 평균들 및 표준편차들을 이용해 가능성이 높은 주행 경로를 예측하는 것이다.
 코드는 아래와 같이 작성하였다.
 
 ### * Train 
@@ -98,7 +97,7 @@ Observation으로 취득된 데이터들과 평균들 및 표준편차들을 이
 * train에서 계산한 각 주행에 대한 평균과 표준편차 및 Observation data의 데이터들을 이용하여
   Observation에서 가장 높은 확률을 가진 주행 경로를 예측하는 것이다.
   계산된 정확도는 100점 중에 84.40 퍼센트를 보였다.
- 
+ ![percent](https://user-images.githubusercontent.com/48784519/117338544-ac7de480-aed9-11eb-92d3-54d9a07efefd.JPG)
 
 # 2. Behaviour Planning
 BP 과제는 cost(차선에 따른 속도, goal lane과의 거리)를 고려하여 현재 자동차에 대한 
@@ -146,10 +145,7 @@ Trajectory을 구하는 과제이다. 코드는 아래와 같이 작성하였다
 
       cost = weight1*(current_dist/(current_dist + data.end_distance_to_goal)) + weight2*abs(goal_lane - data.intended_lane) + weight3*abs(goal_lane - data.final_lane)
 
-
       return cost
-
-
 
 
 
@@ -205,4 +201,6 @@ Trajectory을 구하는 과제이다. 코드는 아래와 같이 작성하였다
   목표 lane쪽으로 이동하도록 하였다.
   
 * 시뮬레이션 결과, Vehicle이 목표지점에 도달하기까지 33초가 소요되었다.
+![BP_goal](https://user-images.githubusercontent.com/48784519/117338574-b3a4f280-aed9-11eb-9fe8-844dc3cb235c.JPG)
   
+
