@@ -97,6 +97,7 @@ Observation으로 취득된 데이터들과 평균들 및 표준편차들을 이
 * train에서 계산한 각 주행에 대한 평균과 표준편차 및 Observation data의 데이터들을 이용하여
   Observation에서 가장 높은 확률을 가진 주행 경로를 예측하는 것이다.
   계산된 정확도는 100점 중에 84.40 퍼센트를 보였다.
+  
  ![percent](https://user-images.githubusercontent.com/48784519/117338544-ac7de480-aed9-11eb-92d3-54d9a07efefd.JPG)
 
 # 2. Behaviour Planning
@@ -201,6 +202,7 @@ Trajectory을 구하는 과제이다. 코드는 아래와 같이 작성하였다
   목표 lane쪽으로 이동하도록 하였다.
   
 * 시뮬레이션 결과, Vehicle이 목표지점에 도달하기까지 33초가 소요되었다.
+
 ![BP_goal](https://user-images.githubusercontent.com/48784519/117338574-b3a4f280-aed9-11eb-9fe8-844dc3cb235c.JPG)
   
 
