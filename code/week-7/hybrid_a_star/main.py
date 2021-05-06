@@ -39,16 +39,18 @@ if __name__ == '__main__':
         print("No valid path found after %d expansions" % expanded)
     path = has.reconstruct_path(start, goal)
 
-    '''
-    for i, p in enumerate(path, start=1):
-        print("##### step %d #####" % i)
-        print("x %f" % p['x'])
-        print("y %f" % p['y'])
-        print("theta %f" % p['t'])
-    '''
+
+    # for i, p in enumerate(path, start=1):
+    #     print("##### step %d #####" % i)
+    #     print("x %f" % p['x'])
+    #     print("y %f" % p['y'])
+    #     print("theta %f" % p['t'])
+
 
     plot = GridPlot(grid.shape)
     plot.plot_grid(grid)
+    # print("success : ", success)
+
     if success:
         plot.plot_path(path, start, goal)
     plot.show()

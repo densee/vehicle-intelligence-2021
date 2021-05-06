@@ -33,6 +33,9 @@ def search(grid, init, goal, cost):
     queue = [(init, 0)]
     while len(queue) > 0:
         c, t = queue.pop(0)
+        print("c : ", c)
+        print("delta : ", delta)
+        print("t : ", t)
         for x in delta:
             if 0 <= c[0] + x[0] < grid.shape[0] \
                and 0 <= c[1] + x[1] < grid.shape[1]:

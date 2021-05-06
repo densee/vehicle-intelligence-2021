@@ -1,0 +1,5 @@
+1. 
+speed : 0.5
+num_cell : 90
+
+expansion : 134
